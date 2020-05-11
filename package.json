@@ -1,0 +1,22 @@
+{
+    "name": "devarc",
+    "version": "0.1.0",
+    "description": "Devarc backend, products, users",
+    "main": "server/server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jsg8405/devarc.git"
+    },
+    "keywords": [
+        "node",
+        "store",
+        "geek",
+        "js",
+        "javascript"
+    ],
+    "author": "Javier Sánchez Gómez <jsg8405@gmail.com>",
+    "license": "MIT"
+}
