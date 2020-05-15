@@ -4,7 +4,8 @@
     "description": "Devarc backend, products, users",
     "main": "server/server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node server/server.js",
+        "test": "nodemon server/server.js"
     },
     "repository": {
         "type": "git",
@@ -18,5 +19,9 @@
         "javascript"
     ],
     "author": "Javier Sánchez Gómez <jsg8405@gmail.com>",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.1",
+        "nodemon": "^2.0.4"
+    }
 }
