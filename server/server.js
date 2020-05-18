@@ -1,7 +1,7 @@
 /* Require */
 const express = require('express');
 const mongoose = require('mongoose');
-const config = require('../config/config');
+const config = require('./config/config');
 
 
 const app = express();
@@ -22,7 +22,7 @@ mongoose
             useUnifiedTopology: true,
             useNewUrlParser: true
         }
-    ).then(() => console.log('Mongo DB connected'))
+    ).then(() => console.log(`URL DB: ${config.urlDB}`))
     .catch(err => console.log(err.message));
 
 
@@ -30,6 +30,5 @@ app.listen(config.port, () => {
 
     console.log(`API Server Listening on http://localhost:${config.port}`);
     console.log(`Environment: ${config.dev}`);
-    console.log(`URL DB: ${config.urlDB}`)
 
 });
