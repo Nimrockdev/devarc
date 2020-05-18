@@ -1,10 +1,35 @@
 /* Require */
 const express = require('express');
+const mongoose = require('mongoose');
+const config = require('../config/config');
+
 
 const app = express();
+/*revisar*/
+// app.use(express.json());
 
 app.use(require('./routes/index'));
 
-app.listen(3000, () => {
-    console.log('LISTENING TO PORT', 3000);
-})
+// mongoose.connect(config.urlDB,  (err, res) => {
+//     if (err) throw err;
+//     console.log('BD Mongo Connected');
+
+// });
+
+mongoose
+    .connect(
+        config.urlDB, {
+            useUnifiedTopology: true,
+            useNewUrlParser: true
+        }
+    ).then(() => console.log('Mongo DB connected'))
+    .catch(err => console.log(err.message));
+
+
+app.listen(config.port, () => {
+
+    console.log(`API Server Listening on http://localhost:${config.port}`);
+    console.log(`Environment: ${config.dev}`);
+    console.log(`URL DB: ${config.urlDB}`)
+
+});
