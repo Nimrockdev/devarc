@@ -8,13 +8,15 @@ const app = express();
 /*revisar*/
 // app.use(express.json());
 
+var bodyParser = require('body-parser');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 app.use(require('./routes/index'));
-
-// mongoose.connect(config.urlDB,  (err, res) => {
-//     if (err) throw err;
-//     console.log('BD Mongo Connected');
-
-// });
 
 mongoose
     .connect(
