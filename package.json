@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/jsg8405/devarc.git"
+        "url": "https://github.com/Nimrockdev/devarc.git"
     },
     "keywords": [
         "node",
@@ -18,7 +18,7 @@
         "js",
         "javascript"
     ],
-    "author": "Javier Sánchez Gómez <jsg8405@gmail.com>",
+    "author": "Javier Sánchez Gómez <Nimrockdev@gmail.com>",
     "license": "MIT",
     "dependencies": {
         "body-parser": "^1.19.0",
