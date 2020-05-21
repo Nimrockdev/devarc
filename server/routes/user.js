@@ -9,6 +9,11 @@ app.post('/user', function(req, res) {
     console.log(req.body);
 
     let body = req.body;
+    let addressJSON = JSON.parse(req.body.address);
+    console.log('adress');
+
+    console.log(addressJSON)
+    console.log(addressJSON.city);
 
     let user = new User({
         name: body.name,
@@ -18,10 +23,11 @@ app.post('/user', function(req, res) {
         img: body.img,
         role: body.role,
         google: body.google,
-        state: body.state
-
+        state: body.state,
+        address: addressJSON
     });
 
+    console.log('User:');
     console.log(user);
     // return res.status(200).json({
     //     ok: true,
