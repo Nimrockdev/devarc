@@ -13,6 +13,10 @@ let userSchema = new Schema({
         type: String,
         required: [true, 'The name is required']
     },
+    surnames: {
+        type: String,
+        required: [true, 'The surname is required']
+    },
     email: {
         type: String,
         unique: true,
@@ -56,6 +60,6 @@ userSchema.methods.toJSON = function() {
 }
 
 
-userSchema.plugin(uniqueValidator, { message: '{PATH} debe ser único' })
+userSchema.plugin(uniqueValidator, { message: '{PATH} must be unique' })
 
 module.exports = mongoose.model('User', userSchema);
