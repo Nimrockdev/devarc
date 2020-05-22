@@ -40,6 +40,7 @@ app.post('/login', (req, res) => {
 
         }
 
+        console.log(config.TOKEN_EXPIRATION);
         let token = jwt.sign({
             userDB
         }, config.dev, { expiresIn: config.TOKEN_EXPIRATION });

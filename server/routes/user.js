@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
+const { checkToken } = require('../middlewares/authentication');
 
 const app = express();
 const bcrypt = require('bcrypt');
@@ -51,7 +52,7 @@ app.post('/user', function(req, res) {
 });
 
 
-app.get('/users', (req, res) => {
+app.get('/users', checkToken, (req, res) => {
 
     User.find({})
         .exec((err, users) => {
@@ -66,8 +67,6 @@ app.get('/users', (req, res) => {
                 users
             });
         })
-
-
 
 });
 
