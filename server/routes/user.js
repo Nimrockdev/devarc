@@ -4,6 +4,7 @@ const { checkToken } = require('../middlewares/authentication');
 
 const app = express();
 const bcrypt = require('bcrypt');
+const _ = require('underscore');
 
 app.post('/user', function(req, res) {
 
@@ -50,6 +51,30 @@ app.post('/user', function(req, res) {
         });
     });
 });
+
+
+app.put('/user/:id', /*, checkToken, */ function(req, res) {
+
+    let idUser = req.params.id;
+    let body = _.pick(req.body, ['name', 'surnames', 'email', 'img', 'role', 'address']);
+
+    // useFindAndModify
+    // findOneAndUpdate
+    User.findOneAndUpdate(idUser, body, { new: true, runValidators: true }, (err, userDB) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            })
+        }
+        res.json({
+            ok: true,
+            user: userDB
+        });
+    });
+
+});
+
 
 
 app.get('/users', checkToken, (req, res) => {
