@@ -53,7 +53,7 @@ app.post('/user', function(req, res) {
 });
 
 
-app.put('/user/:id', /*, checkToken, */ function(req, res) {
+app.put('/user/:id', checkToken, function(req, res) {
 
     let idUser = req.params.id;
     let body = _.pick(req.body, ['name', 'surnames', 'email', 'img', 'role', 'address']);
@@ -74,7 +74,6 @@ app.put('/user/:id', /*, checkToken, */ function(req, res) {
     });
 
 });
-
 
 
 app.get('/users', checkToken, (req, res) => {
