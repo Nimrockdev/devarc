@@ -23,7 +23,8 @@ mongoose
         config.urlDB, {
             useCreateIndex: true,
             useUnifiedTopology: true,
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useFindAndModify: false
         }
     ).then(() => console.log(`URL DB: ${config.urlDB}`))
     .catch(err => console.log(err.message));

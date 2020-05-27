@@ -60,6 +60,7 @@ app.put('/user/:id', checkToken, function(req, res) {
 
     // useFindAndModify
     // findOneAndUpdate
+
     User.findOneAndUpdate(idUser, body, { new: true, runValidators: true }, (err, userDB) => {
         if (err) {
             return res.status(400).json({
