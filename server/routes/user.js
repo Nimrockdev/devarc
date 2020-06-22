@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
-const { checkToken } = require('../middlewares/authentication');
+const { checkToken, isAdmin } = require('../middlewares/authentication');
 
 const app = express();
 const bcrypt = require('bcrypt');
@@ -28,13 +28,6 @@ app.post('/user', function(req, res) {
         state: body.state,
         address: addressJSON
     });
-
-    console.log('User:');
-    console.log(user);
-    // return res.status(200).json({
-    //     ok: true,
-    //     user
-    // });
 
     user.save((err, userDB) => {
         if (err) {

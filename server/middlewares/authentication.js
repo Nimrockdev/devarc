@@ -18,9 +18,23 @@ let checkToken = (req, res, next) => {
     })
 };
 
+let isAdmin = (req, res, next) => {
+    let user = req.body;
+    if (user.role === 'ADMIN_ROLE') {
+        console.log('is admin');
+        next();
+    } else {
+        console.log('not is admin');
+        res.json({
+            ok: false,
+            err: { message: 'The user is not an administrator' }
+        })
+    }
 
+};
 
 
 module.exports = {
-    checkToken
+    checkToken,
+    isAdmin
 }
