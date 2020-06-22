@@ -5,8 +5,6 @@ const config = require('./config/config');
 
 
 const app = express();
-/*revisar*/
-// app.use(express.json());
 
 var bodyParser = require('body-parser');
 
