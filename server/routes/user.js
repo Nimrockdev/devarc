@@ -71,7 +71,7 @@ app.put('/user/:id', checkToken, function(req, res) {
 
 
 app.get('/users', checkToken, (req, res) => {
-
+    let Users;
     User.find({})
         .exec((err, users) => {
             if (err) {
@@ -80,8 +80,10 @@ app.get('/users', checkToken, (req, res) => {
                     err
                 })
             };
+            Users = users.length;
             res.json({
                 ok: true,
+                Users,
                 users
             });
         })
