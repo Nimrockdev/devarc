@@ -28,7 +28,6 @@ app.post('/category', (req, res) => {
 
     let category = new Category({
         description: body.description
-
     });
 
     category.save((err, categoryDB) => {
