@@ -27,6 +27,32 @@ app.get('/products', (req, res) => {
 });
 
 
+app.get('/products/search/:word', (req, res) => {
+
+let word = req.params.word;
+let negex = new RegExp(word,'i');
+
+    Product.find({name: negex})
+        .sort('price')
+        .exec((err, products) => {
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                })
+            }
+            let numProductos = products.length;
+            res.json({
+                ok: true,
+                numProductos,
+                products
+            });
+
+        });
+
+});
+
+
 app.post('/products', (req, res) => {
 
     let body = req.body;
