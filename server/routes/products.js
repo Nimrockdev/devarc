@@ -29,8 +29,8 @@ app.get('/products', (req, res) => {
 
 app.get('/products/search/:word', (req, res) => {
 
-let word = req.params.word;
-let negex = new RegExp(word,'i');
+    let word = req.params.word;
+    let negex = new RegExp(word,'i');
 
     Product.find({name: negex})
         .sort('price')
