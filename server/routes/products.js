@@ -86,9 +86,6 @@ app.post('/products', (req, res) => {
 });
 
 
-
-
-
 app.get('/product/test', (req, res) => {
     res.json({
         ok: true,
