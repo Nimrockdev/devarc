@@ -48,7 +48,12 @@ let userSchema = new Schema({
         city: String,
         state: String,
         zip: Number
+    },
+    codeCountry: { 
+        type: Number,
+        default: 34
     }
+    
 });
 
 userSchema.methods.toJSON = function() {
