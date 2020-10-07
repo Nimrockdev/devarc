@@ -12,6 +12,7 @@ let productSchema = new Schema({
     img: { type: String, required: false },
     avaiable: { type: Boolean, required: true, default: true },
     category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
+    stock:{type:Number, default:0}
 });
 
 
