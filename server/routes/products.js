@@ -85,6 +85,44 @@ app.post('/products', (req, res) => {
     })
 });
 
+app.get('/products/searchCategoryDesc/:word', (req, res) => {
+
+    let word = req.params.word;
+
+    Product.find({category: word})
+    .populate('category')
+        .exec((err, products) => {
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                })
+            }
+            
+            
+            
+            let productoArray = [];
+
+            for (i in products) {
+
+                 let producto = new Object();
+                 producto.name =  products[i].name;
+                 producto.price =  products[i].price;
+
+                 productoArray.push(producto);
+
+            }
+
+            let numProductos = products.length;
+            res.json({
+                ok: true,
+                numProductos,
+                productoArray
+            });
+
+        });
+
+});
 
 app.get('/product/test', (req, res) => {
     res.json({
