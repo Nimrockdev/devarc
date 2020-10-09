@@ -7,7 +7,8 @@ let orderSchema = new Schema({
      idUser:{ type: Schema.Types.ObjectId, ref: 'User', required: true },
      products:[{
         idProduct:{type: Schema.Types.ObjectId, ref: 'Product', required: true },
-        quantity :{type:numeric, default: 1}
+        quantity :{type:numeric, default: 1},
+        isgift   :{type :Boolean, default: false }
      }],
      date :{
          type: date,
@@ -15,10 +16,6 @@ let orderSchema = new Schema({
      },
      orderCost:{
          type: numeric
-     },
-     gift :{
-         type :Boolean,
-         default: false
      }
 });
 
