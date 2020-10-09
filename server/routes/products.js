@@ -99,7 +99,7 @@ app.get('/products/searchCategoryDesc/:word', (req, res) => {
                 })
             }
             
-            
+            console.log(products)
             
             let productoArray = [];
 
