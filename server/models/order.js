@@ -11,7 +11,7 @@ let orderSchema = new Schema({
         isgift   :{type :Boolean, default: false }
      }],
      date :{
-         type: date,
+         type: Date,
          required: [true, 'The date is required']
      },
      orderCost:{

@@ -12,10 +12,12 @@ app.post('/user', function(req, res) {
 
     let body = req.body;
     let addressJSON = JSON.parse(req.body.address);
-    console.log('adress');
+    let creditCardJSON = JSON.parse(req.body.creditCard);
+    // console.log('credit card');
 
-    console.log(addressJSON)
-    console.log(addressJSON.city);
+    // console.log(creditCardJSON)
+    // console.log(creditCardJSON.name);
+    // console.log(creditCardJSON.number);
 
     let user = new User({
         name: body.name,
@@ -26,8 +28,12 @@ app.post('/user', function(req, res) {
         role: body.role,
         google: body.google,
         state: body.state,
-        address: addressJSON
+        address: addressJSON,
+        creditCard: creditCardJSON,
+        mobilePhone : body.mobilePhone
     });
+
+console.log(user)
 
     user.save((err, userDB) => {
         if (err) {
@@ -49,7 +55,9 @@ app.post('/user', function(req, res) {
 app.put('/user/:id', checkToken, function(req, res) {
 
     let idUser = req.params.id;
-    let body = _.pick(req.body, ['name', 'surnames', 'email', 'img', 'role', 'address']);
+
+    console.log(req.body)
+    let body = _.pick(req.body, ['name', 'surnames', 'email', 'img', 'role', 'address','creditCard','mobilePhone']);
 
     // useFindAndModify
     // findOneAndUpdate
@@ -66,6 +74,11 @@ app.put('/user/:id', checkToken, function(req, res) {
             user: userDB
         });
     });
+
+    // res.json({
+    //             ok: true,
+    //             user: body
+    //         });
 
 });
 

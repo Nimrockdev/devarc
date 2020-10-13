@@ -26,6 +26,9 @@ let userSchema = new Schema({
         type: String,
         required: [true, 'The password is required']
     },
+    mobilePhone: {
+        type: String
+    },
     img: {
         type: String,
         required: false
@@ -52,7 +55,13 @@ let userSchema = new Schema({
     codeCountry: { 
         type: Number,
         default: 34
-    }
+    }, 
+    creditCard:[{
+        cardName: { type: String, required: [true, 'It is necessary to indicate the name'] },
+        cardNumber: { type: String, required: [true, 'It is necessary to indicate the number'] },
+        dateExpiration : { type: Date} ,
+        active:{type : Boolean, default: false}
+    }]
     
 });
 
