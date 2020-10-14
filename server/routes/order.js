@@ -6,20 +6,59 @@ const app = express();
 
 app.post('/order',(req, res) =>{
 
+    let orderPrice = 0;
 
-    shoopingCartSchema = {idUser : '5f85b68439ff5a36285471a7', idProduct : '5f7701949449505900f23331'};
+    shoopingCartSchema = {  idUser : '5f85b68439ff5a36285471a7', 
+                            products:[{ idProduct: '5f7701949449505900f23331',
+                                        quantity : '1',
+                                        isgift   : false,
+                                        price    : 10.25,
+                                        priceCost: 9.50
+                                      },
+                                      { idProduct: '5f7701c99449505900f23333',
+                                        quantity : '1',
+                                        isgift   : false,
+                                        price    : 10.10,
+                                        priceCost: 9                                           
+                                      }]
+                            };
+
     let body = shoopingCartSchema;
-
-    console.log(body);
+    
+    body.products.forEach(product => {
+        orderPrice = orderPrice + product.price; 
+    });
 
     let order = new Order({
         idUser : body.idUser,
-        orderCost : 99,
-        products:{idProduct :shoopingCartSchema.idProduct }
-             
+        orderPrice : orderPrice,
+        products: body.products   
     });
    
-console.log(order)
+
+    order.save((err, orderDB)=> {
+
+        if(err){
+            return res.status(500).json({
+                ok:false,
+                err
+            });
+        }
+
+        if(!orderDB){
+            return res.statys(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json({
+            ok:true,
+            orderDB
+        })
+
+    });
+  
 
 });
 

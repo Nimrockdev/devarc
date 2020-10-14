@@ -5,7 +5,13 @@ let Schema = mongoose.Schema;
 
 let shoopingCartSchema = new Schema({
      idUser:{ type: Schema.Types.ObjectId, ref: 'User', required: true },
-     idProduct:{ type: Schema.Types.ObjectId, ref: 'Product', required: true }
+     products:[{
+          idProduct : {type: Schema.Types.ObjectId, ref: 'Product', required: true },
+          quantity  : {type: Number, default: 1},
+          isgift    : {type :Boolean, default: false },
+          price     : {type: Number, required: [true, 'It is necessary to indicate the price'] },
+          priceCost : {type: Number, required: [true, 'It is necessary to indicate the price cost'] },
+     }]
 });
 
 
