@@ -1,7 +1,7 @@
 # Devarc Ecommerce
 
 
-##Backend development in nodejs for ecommerce  
+## Backend development in nodejs for ecommerce  
 
 - Creation and management of users
 - Login and management with tokens
@@ -15,7 +15,7 @@
 
 
 
-##Coming soon
+## Coming soon
 - Image service for articles
 - Email notifications
 - First release on heroku
@@ -23,7 +23,7 @@
 - Upgrades  
   
   
-[Devarc Github](https://github.com/Nimrockdev/devarc)
+[Devarc Github](https://github.com/Nimrockdev/devarc)  
 [Devarc Github Release 1.0.1](https://github.com/Nimrockdev/devarc/releases/tag/1.0.1)  
 
 
