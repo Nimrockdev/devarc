@@ -7,7 +7,7 @@ const app = express();
 app.post('/order',(req, res) =>{
 
     let orderPrice = 0;
-
+    
     shoopingCartSchema = {  idUser : '5f85b68439ff5a36285471a7', 
                             products:[{ idProduct: '5f7701949449505900f23331',
                                         quantity : '1',
@@ -16,7 +16,7 @@ app.post('/order',(req, res) =>{
                                         priceCost: 9.50
                                       },
                                       { idProduct: '5f7701c99449505900f23333',
-                                        quantity : '1',
+                                        quantity : '2',
                                         isgift   : false,
                                         price    : 10.10,
                                         priceCost: 9                                           
@@ -26,7 +26,9 @@ app.post('/order',(req, res) =>{
     let body = shoopingCartSchema;
     
     body.products.forEach(product => {
-        orderPrice = orderPrice + product.price; 
+
+        orderPrice = orderPrice + (product.price * product.quantity );
+        
     });
 
     let order = new Order({
