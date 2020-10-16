@@ -24,7 +24,7 @@
   
   
 [Devarc Github](https://github.com/Nimrockdev/devarc)  
-[Devarc Github Release 1.0.1](https://github.com/Nimrockdev/devarc/releases/tag/1.0.1)  
+[Devarc Github Releases](https://github.com/Nimrockdev/devarc/releases)  
 
 
 
