@@ -9,7 +9,7 @@ let productSchema = new Schema({
     price: { type: Number, required: [true, 'It is necessary to indicate the price'] },
     priceCost: { type: Number, required: [true, 'It is necessary to indicate the price cost'] },
     description: { type: String, required: false },
-    img: { type: String, required: false },
+    img: { type: String, required: false, default:'https://res.cloudinary.com/nimrockdevprojects/image/upload/v1608812602/devarc/products/default_msxhs0.png' },
     avaiable: { type: Boolean, required: true, default: true },
     category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
     stock:{type:Number, default:0}

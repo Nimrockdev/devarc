@@ -62,7 +62,8 @@ app.post('/products', (req, res) => {
         price: body.price,
         priceCost: body.priceCost,
         description: body.description,
-        category: body.category
+        category: body.category,
+        img: ''
     });
 
     product.save((err, productDB) => {
