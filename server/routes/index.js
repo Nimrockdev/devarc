@@ -13,6 +13,7 @@ app.use(require('./tax'));
 
 app.use(require('./order'));
 app.use(require('./shoppingCart'));
+app.use(require('./upload'));
 
 
 
