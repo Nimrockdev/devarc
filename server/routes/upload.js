@@ -19,22 +19,20 @@ app.put('/upload/:type/:id', (req, res) => {
             .json({
                 ok: false,
                 err: {
-                    message: 'No se ha seleccionado níngun archivo'
+                    message: 'File not found'
                 }
             });
-    } else {
-        console.log('hay fichero')
     }
 
     let img = {
         type,
-        id
+        id,
+        file: req.files
     }
 
     return res.json({
         ok: false,
-        im: img,
-        err: { message: 'esto es un test' }
+        im: img
     });
 
 });
