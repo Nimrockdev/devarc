@@ -24,6 +24,18 @@ app.put('/upload/:type/:id', (req, res) => {
             });
     }
 
+    let imageType = ['products', 'users'];
+
+    if (imageType.indexOf(type) < 0) {
+        return res.status(400)
+            .json({
+                ok: false,
+                error: { message: 'The types valids are ' + imageType.join(', ') }
+            })
+    }
+
+
+
     let img = {
         type,
         id,
@@ -31,8 +43,8 @@ app.put('/upload/:type/:id', (req, res) => {
     }
 
     return res.json({
-        ok: false,
-        im: img
+        ok: false
+            //im: img
     });
 
 });
