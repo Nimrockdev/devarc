@@ -34,6 +34,23 @@ app.put('/upload/:type/:id', (req, res) => {
             })
     }
 
+    let validExtensions = ['jpg', 'png', 'jpeg', 'bmp', 'gif'];
+    let file = req.files.img;
+    let name = file.name.split('.');
+
+    extension = name[name.length - 1];
+
+    if (validExtensions.indexOf(extension) < 0) {
+        return res.status(400)
+            .json({
+                ok: false,
+                error: { message: 'The extensions valids are ' + validExtensions.join(', ') }
+            })
+    }
+
+
+
+
 
 
     let img = {
