@@ -9,6 +9,8 @@ const app = express();
 app.use(fileUpload());
 
 
+let cloudinary = require('cloudinary').v2;
+
 app.put('/upload/:type/:id', (req, res) => {
 
     let type = req.params.type;
@@ -49,9 +51,71 @@ app.put('/upload/:type/:id', (req, res) => {
     }
 
 
+    name = id + '.' + extension;
+    file.name = name;
+
+
+    console.log(file)
+    CLOUDINARY_URL = 'cloudinary: //341134228132323:aRPkk4oBFTrrjVZ0rrb3GLo8kzA@nimrockdevprojects';
+    cloudinary.config({
+        cloud_name: 'nimrockdevprojects',
+        api_key: '341134228132323',
+        api_secret: 'aRPkk4oBFTrrjVZ0rrb3GLo8kzA'
+    });
+    /*console.log(req.files.img)
+    /*cloudinary.uploader.upload('', function(error, result) { console.log(result, error) });
+    */
+    let dir = `uploads/${type}/${name}`;
+    file.mv(dir, (err) => {
+        //archivo.mv('uploads/filename.jpg', (err) => {
+
+        if (err) {
+            return res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+        //Imagen cargada
+        /*
+        if (tipo === 'usuarios') {
+            imagenUsuario(id, res, nombreArchivo);
+        } else {
+            imagenProducto(id, res, nombreArchivo);
+        }
+        */
+        /*use_filename: 'true'
+        options = { folder: 'devarc/products' }
+        */
+        cloudinary.uploader.upload(dir, { public_id: name, folder: "devarc/products", use_filename: "true" })
+            .then(
+                function(image) {
+                    console.log('** file uploaded to Cloudinary service');
+                    console.dir(image);
+                    //photo.image = image;
+                    // Save photo with image metadata
+                    // return photo.save();
+
+                })
+            .then(function() {
+                console.log('** photo saved');
+
+
+                //let pathImagen = path.resolve(__dirname, `../../uploads/${ tipo }/${ nombreImagen }`)
+
+                if (fs.existsSync(dir)) {
+                    console.log('170');
+                    fs.unlinkSync(dir)
+                    console.log('172');
+
+                }
+
+            })
 
 
 
+
+
+    });
 
     let img = {
         type,
@@ -59,9 +123,11 @@ app.put('/upload/:type/:id', (req, res) => {
         file: req.files
     }
 
+    //console.log(img);
+
     return res.json({
         ok: false
-            //im: img
+            //img: img
     });
 
 });
