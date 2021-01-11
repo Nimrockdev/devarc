@@ -10,7 +10,7 @@ cloudinary.config({
 
 let cloudinaryUpload = async(dir, name) => {
 
-    let imagen = await cloudinary.uploader.upload(dir, { public_id: name, folder: "devarc/products", use_filename: "true" })
+    let imagen = await cloudinary.uploader.upload(dir, { /*public_id: name,*/ folder: "devarc/products", use_filename: "true" })
         .then((image) => {
             console.log('File uploaded to Cloudinary service');
             //console.log(image);

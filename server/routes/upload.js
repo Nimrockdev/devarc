@@ -83,7 +83,7 @@ app.put('/upload/:type/:id', (req, res) => {
         /*use_filename: 'true'
         options = { folder: 'devarc/products' }
         */
-
+        console.log(file.name)
         cloudinaryUpload(dir, name)
             .then(imagen => { console.log(imagen) })
             .then(() => {
