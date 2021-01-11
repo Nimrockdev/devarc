@@ -5,11 +5,16 @@ const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const path = require('path');
 
+const { cloudinaryUpload } = require('../controllers/cloudinary');
+
 const app = express();
+
+//let cloudinaryUpload = require('../controllers/cloudinary');
+
 app.use(fileUpload());
 
 
-let cloudinary = require('cloudinary').v2;
+
 
 app.put('/upload/:type/:id', (req, res) => {
 
@@ -55,16 +60,7 @@ app.put('/upload/:type/:id', (req, res) => {
     file.name = name;
 
 
-    console.log(file)
-    CLOUDINARY_URL = 'cloudinary: //341134228132323:aRPkk4oBFTrrjVZ0rrb3GLo8kzA@nimrockdevprojects';
-    cloudinary.config({
-        cloud_name: 'nimrockdevprojects',
-        api_key: '341134228132323',
-        api_secret: 'aRPkk4oBFTrrjVZ0rrb3GLo8kzA'
-    });
-    /*console.log(req.files.img)
-    /*cloudinary.uploader.upload('', function(error, result) { console.log(result, error) });
-    */
+
     let dir = `uploads/${type}/${name}`;
     file.mv(dir, (err) => {
         //archivo.mv('uploads/filename.jpg', (err) => {
@@ -75,6 +71,7 @@ app.put('/upload/:type/:id', (req, res) => {
                 err
             });
         }
+
         //Imagen cargada
         /*
         if (tipo === 'usuarios') {
@@ -86,33 +83,16 @@ app.put('/upload/:type/:id', (req, res) => {
         /*use_filename: 'true'
         options = { folder: 'devarc/products' }
         */
-        cloudinary.uploader.upload(dir, { public_id: name, folder: "devarc/products", use_filename: "true" })
-            .then(
-                function(image) {
-                    console.log('** file uploaded to Cloudinary service');
-                    console.dir(image);
-                    //photo.image = image;
-                    // Save photo with image metadata
-                    // return photo.save();
 
-                })
-            .then(function() {
-                console.log('** photo saved');
+        cloudinaryUpload(dir, name)
+            .then(imagen => { console.log(imagen) })
+            .then(() => {
 
 
-                //let pathImagen = path.resolve(__dirname, `../../uploads/${ tipo }/${ nombreImagen }`)
-
-                if (fs.existsSync(dir)) {
-                    console.log('170');
+                /*if (fs.existsSync(dir)) {
                     fs.unlinkSync(dir)
-                    console.log('172');
-
-                }
-
-            })
-
-
-
+                }*/
+            }).catch(err => console.log(err));
 
 
     });
