@@ -1,20 +1,14 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
-
-
 const fs = require('fs');
-const path = require('path');
 
 const { cloudinaryUpload } = require('../controllers/cloudinary');
 
+let Product = require('../models/product');
+
 const app = express();
 
-//let cloudinaryUpload = require('../controllers/cloudinary');
-
 app.use(fileUpload());
-
-
-
 
 app.put('/upload/:type/:id', (req, res) => {
 
@@ -41,6 +35,14 @@ app.put('/upload/:type/:id', (req, res) => {
             })
     }
 
+    if (type == 'users') {
+        return res.status(400)
+            .json({
+                ok: false,
+                error: { message: 'Upload users image, cooming soon' }
+            })
+    }
+
     let validExtensions = ['jpg', 'png', 'jpeg', 'bmp', 'gif'];
     let file = req.files.img;
     let name = file.name.split('.');
@@ -59,11 +61,9 @@ app.put('/upload/:type/:id', (req, res) => {
     name = id + '.' + extension;
     file.name = name;
 
-
-
     let dir = `uploads/${type}/${name}`;
+
     file.mv(dir, (err) => {
-        //archivo.mv('uploads/filename.jpg', (err) => {
 
         if (err) {
             return res.status(500).json({
@@ -72,7 +72,6 @@ app.put('/upload/:type/:id', (req, res) => {
             });
         }
 
-        //Imagen cargada
         /*
         if (tipo === 'usuarios') {
             imagenUsuario(id, res, nombreArchivo);
@@ -83,31 +82,42 @@ app.put('/upload/:type/:id', (req, res) => {
         /*use_filename: 'true'
         options = { folder: 'devarc/products' }
         */
-        console.log(file.name)
-        cloudinaryUpload(dir, name)
-            .then(imagen => { console.log(imagen) })
-            .then(() => {
 
 
-                /*if (fs.existsSync(dir)) {
+
+        cloudinaryUpload(dir, id, type)
+            .then(imagen => {
+
+                let img = {
+                    type,
+                    id,
+                    url: imagen.url
+                }
+
+
+                //Delete File, extract from funcion
+                if (fs.existsSync(dir)) {
                     fs.unlinkSync(dir)
-                }*/
-            }).catch(err => console.log(err));
+                }
+                //Update Product, extract funcion from here
+                Product.updateOne({ _id: id }, { $set: { img: imagen.url } }, )
+                    .then(product => console.log(`Product ${id} updated`))
+                    .catch(err => console.log(error))
 
 
-    });
+                return res.json({
+                    ok: true,
+                    product: id,
+                    url: img.url
+                });
 
-    let img = {
-        type,
-        id,
-        file: req.files
-    }
+            }).catch(err => {
+                return res.json({
+                    ok: false,
+                    err
+                });
+            });
 
-    //console.log(img);
-
-    return res.json({
-        ok: false
-            //img: img
     });
 
 });

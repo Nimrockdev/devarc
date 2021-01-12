@@ -8,49 +8,21 @@ cloudinary.config({
 });
 
 
-let cloudinaryUpload = async(dir, name) => {
+let cloudinaryUpload = async(dir, name, type) => {
 
-    let imagen = await cloudinary.uploader.upload(dir, { /*public_id: name,*/ folder: "devarc/products", use_filename: "true" })
-        .then((image) => {
-            console.log('File uploaded to Cloudinary service');
-            //console.log(image);
-            console.log('File uploaded to Cloudinary service');
-            return image;
-
+    let img = await cloudinary.uploader.upload(dir, { public_id: name, folder: `devarc/${type}`, use_filename: "true" })
+        .then((img) => {
+            console.log(`File ${name} uploaded to Cloudinary service`);
+            return img;
         })
         .catch(
             (err) => { return err }
         );
 
-    if (imagen !== null) {
-        return imagen
-    } else { return err }
+    if (img !== null) { return img } else { return err };
 }
-
-
-
-
-
 
 
 module.exports = {
     cloudinaryUpload
 }
-
-
-
-/*
-
-
-        .then(
-            function(image) {
-                console.log('File uploaded to Cloudinary service');
-                console.log(image);
-                console.log('File uploaded to Cloudinary service');
-                return image;
-
-            })
-        .catch(
-            console.log(err)
-        );
-         }*/
