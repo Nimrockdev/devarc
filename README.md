@@ -1,7 +1,7 @@
 # Devarc Ecommerce
 
 
-![https://github.com/Nimrockdev/devarc](https://github.com/Nimrockdev/devarc/blob/imgDefault/uploads/devarc_logo_02_tqvl2c.png)
+![https://github.com/Nimrockdev/devarc](https://github.com/Nimrockdev/devarc/blob/master/uploads/devarc_logo_02_tqvl2c.png)
 
 
 ## Backend development in nodejs
