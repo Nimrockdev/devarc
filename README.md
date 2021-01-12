@@ -14,7 +14,7 @@
 - Creation and management of orders
 - Use of middlewares
 - Database used MongoDB already deployed.
-- Image service for products, Cloudinary Service $\leftarrow$ <span style="color:green">NEW</span>
+- Image service for products, Cloudinary Service <--NEW
 
 ## Coming soon
 - Email notifications
