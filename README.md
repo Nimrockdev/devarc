@@ -8,7 +8,7 @@
 
 - Creation and management of users
 - Login and management with tokens, JWT.
-- Creation and management of articles and their categories
+- Creation and management of products and their categories
 - Creation Tax
 - Creation of the shopping cart for user
 - Creation and management of orders
