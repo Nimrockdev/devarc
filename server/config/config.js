@@ -1,4 +1,5 @@
-require('dotenv').config();
+//require('dotenv').config();
+require('dotenv').config({ silent: process.env.NODE_ENV === 'prod' });
 
 const config = {
     dev: process.env.NODE_ENV || 'prod',
