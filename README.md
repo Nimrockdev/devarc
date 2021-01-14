@@ -26,10 +26,7 @@
 [Devarc Github](https://github.com/Nimrockdev/devarc)  
 [Devarc Github Releases](https://github.com/Nimrockdev/devarc/releases)  
 
-
-
 I keep developing
-
 
 ### License
 MIT (c) Javier Sánchez Gómez
