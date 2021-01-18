@@ -72,19 +72,6 @@ app.put('/upload/:type/:id', (req, res) => {
             });
         }
 
-        /*
-        if (tipo === 'usuarios') {
-            imagenUsuario(id, res, nombreArchivo);
-        } else {
-            imagenProducto(id, res, nombreArchivo);
-        }
-        */
-        /*use_filename: 'true'
-        options = { folder: 'devarc/products' }
-        */
-
-
-
         cloudinaryUpload(dir, id, type)
             .then(imagen => {
 
@@ -93,7 +80,6 @@ app.put('/upload/:type/:id', (req, res) => {
                     id,
                     url: imagen.url
                 }
-
 
                 //Delete File, extract from funcion
                 if (fs.existsSync(dir)) {

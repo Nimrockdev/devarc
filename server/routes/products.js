@@ -4,8 +4,6 @@ let app = express();
 let Product = require('../models/product');
 
 
-
-
 app.get('/products', (req, res) => {
     Product.find({})
         .exec((err, products) => {
@@ -30,9 +28,9 @@ app.get('/products', (req, res) => {
 app.get('/products/search/:word', (req, res) => {
 
     let word = req.params.word;
-    let negex = new RegExp(word,'i');
+    let negex = new RegExp(word, 'i');
 
-    Product.find({name: negex})
+    Product.find({ name: negex })
         .sort('price')
         .exec((err, products) => {
             if (err) {
@@ -90,8 +88,8 @@ app.get('/products/searchCategoryDesc/:word', (req, res) => {
 
     let word = req.params.word;
 
-    Product.find({category: word})
-    .populate('category')
+    Product.find({ category: word })
+        .populate('category')
         .exec((err, products) => {
             if (err) {
                 return res.status(500).json({
@@ -99,18 +97,18 @@ app.get('/products/searchCategoryDesc/:word', (req, res) => {
                     err
                 })
             }
-            
+
             console.log(products)
-            
+
             let productoArray = [];
 
             for (i in products) {
 
-                 let producto = new Object();
-                 producto.name =  products[i].name;
-                 producto.price =  products[i].price;
+                let producto = new Object();
+                producto.name = products[i].name;
+                producto.price = products[i].price;
 
-                 productoArray.push(producto);
+                productoArray.push(producto);
 
             }
 
@@ -125,6 +123,7 @@ app.get('/products/searchCategoryDesc/:word', (req, res) => {
 
 });
 
+/*
 app.get('/product/test', (req, res) => {
     res.json({
         ok: true,
@@ -136,5 +135,7 @@ let productsTEST = [
     { "code": "A1", "description": "Mouse Logitech", "Price": 9.99 },
     { "code": "A2", "description": "Mouse Razer", "Price": 19.99 }
 ];
+*/
+
 
 module.exports = app;

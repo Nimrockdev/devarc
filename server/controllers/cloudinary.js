@@ -1,12 +1,15 @@
 const config = require('../config/config');
 let cloudinary = require('cloudinary').v2;
 
+
 CLOUDINARY_URL = config.CD_CLOUDINARY_URL;
 cloudinary.config({
     cloud_name: config.CD_CLOUD_NAME,
     api_key: config.CD_API_KEY,
     api_secret: config.CD_API_SECRET
 });
+
+
 
 let cloudinaryUpload = async(dir, name, type) => {
 
