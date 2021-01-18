@@ -24,9 +24,9 @@
 - Frontend in REACT, new project.
 - Upgrades...  
   
-[Devarc Heroku](https://devarc.herokuapp.com/dev "Devarc Heroku"){:target="_blank"}
-[Devarc Github](https://github.com/Nimrockdev/devarc){:target="_blank"} 
-[Devarc Github Releases](https://github.com/Nimrockdev/devarc/releases){:target="_blank"} 
+[Devarc Heroku](https://devarc.herokuapp.com/dev "Devarc Heroku")
+[Devarc Github](https://github.com/Nimrockdev/devarc)
+[Devarc Github Releases](https://github.com/Nimrockdev/devarc/releases)
 
 I keep developing
 
