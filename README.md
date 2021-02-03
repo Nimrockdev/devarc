@@ -25,7 +25,7 @@
 
 
 
-# Frontend in REACT, new project. 
+## Frontend in REACT, working
 [Ideapp](https://github.com/Nimrockdev/ideapp "Ideapp")
 
 ## Urls 
