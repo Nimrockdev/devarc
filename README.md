@@ -21,10 +21,12 @@
 
 ## Coming soon
 - Email notifications.
-- Frontend in REACT, new project.
-- Upgrades...  
-  
+- Upgrades ...  
 
+
+
+# Frontend in REACT, new project. 
+[Ideapp](https://github.com/Nimrockdev/ideapp "Ideapp")
 
 ## Urls  
 [Devarc Heroku](https://devarc.herokuapp.com/dev "Devarc Heroku")  
