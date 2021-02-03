@@ -28,8 +28,10 @@
 # Frontend in REACT, new project. 
 [Ideapp](https://github.com/Nimrockdev/ideapp "Ideapp")
 
-## Urls  
-[Devarc Heroku](https://devarc.herokuapp.com/dev "Devarc Heroku")  
+## Urls 
+[Devarc Heroku Products](https://devarc.herokuapp.com/products "Devarc Heroku Products")  
+[Devarc Heroku DEV](https://devarc.herokuapp.com/dev "Devarc Heroku DEV")  
+
 [Devarc Github](https://github.com/Nimrockdev/devarc)  
 [Devarc Github Releases](https://github.com/Nimrockdev/devarc/releases)
 
