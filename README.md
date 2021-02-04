@@ -26,7 +26,8 @@
 
 
 ## Frontend in REACT, working
-[Ideapp](https://github.com/Nimrockdev/ideapp "Ideapp")
+[Ideapp, Github Pages](https://nimrockdev.github.io/ideapp/ "Ideapp Products")  **NEW**  
+[Ideapp Github](https://github.com/Nimrockdev/ideapp "Ideapp")  **NEW**  
 
 ## Urls 
 [Devarc Heroku Products](https://devarc.herokuapp.com/products "Devarc Heroku Products")  
