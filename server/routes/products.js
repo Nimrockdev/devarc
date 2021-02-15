@@ -50,6 +50,29 @@ app.get('/products/search/:word', (req, res) => {
 
 });
 
+app.get('/products/searchByID/:word', (req, res) => {
+
+    let word = req.params.word;
+    //let negex = new RegExp(word, 'i');
+
+    Product.find({ _id: word })
+        .exec((err, products) => {
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                })
+            }
+            let numProductos = products.length;
+            res.json({
+                ok: true,
+                numProductos,
+                products
+            });
+
+        });
+
+});
 
 app.post('/products', (req, res) => {
 
