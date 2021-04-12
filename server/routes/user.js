@@ -37,7 +37,7 @@ app.post('/user', function(req, res) {
                 err
             });
         }
-        res.json({
+        res.status(201).json({
             ok: true,
             usuario: userDB
         });
@@ -59,7 +59,7 @@ app.put('/user/:id', checkToken, function(req, res) {
                 err
             })
         }
-        res.json({
+        res.status(201).json({
             ok: true,
             user: userDB
         });
@@ -73,13 +73,13 @@ app.get('/users', checkToken, (req, res) => {
     User.find({})
         .exec((err, users) => {
             if (err) {
-                return res.status(500).json({
+                return res.status(400).json({
                     ok: false,
                     err
                 })
             };
             Users = users.length;
-            res.json({
+            res.status(200).json({
                 ok: true,
                 Users,
                 users

@@ -5,7 +5,7 @@ let app = express();
 app.get('/dev', (req, res) => {
     let d = new Date();
 
-    res.json({
+    res.status(200).json({
         ok: true,
         message: `Hello dev! ${d.toTimeString()}`,
         urlDevarc: {

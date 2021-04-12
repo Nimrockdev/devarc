@@ -66,15 +66,15 @@ app.put('/upload/:type/:id', (req, res) => {
     file.mv(dir, (err) => {
 
         if (err) {
-            return res.status(500).json({
+            return res.status(400).json({
                 ok: false,
                 err
             });
         }
-
+console.log('estamos antes del upload')
         cloudinaryUpload(dir, id, type)
             .then(imagen => {
-
+console.log('estamos en el upload')
                 let img = {
                     type,
                     id,
@@ -91,14 +91,14 @@ app.put('/upload/:type/:id', (req, res) => {
                     .catch(err => console.log(error))
 
 
-                return res.json({
+                return res.status(201).json({
                     ok: true,
                     product: id,
                     url: img.url
                 });
 
             }).catch(err => {
-                return res.json({
+                return res.status(400).json({
                     ok: false,
                     err
                 });

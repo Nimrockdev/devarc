@@ -41,7 +41,7 @@ app.post('/order',(req, res) =>{
     order.save((err, orderDB)=> {
 
         if(err){
-            return res.status(500).json({
+            return res.status(400).json({
                 ok:false,
                 err
             });
@@ -54,7 +54,7 @@ app.post('/order',(req, res) =>{
             });
         }
 
-        res.json({
+        res.status(201).json({
             ok:true,
             orderDB
         })

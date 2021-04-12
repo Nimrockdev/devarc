@@ -15,7 +15,7 @@ app.post('/login', (req, res) => {
 
 
         if (err) {
-            return res.status(500).json({
+            return res.status(400).json({
                 ok: false,
                 err
             });
@@ -31,7 +31,7 @@ app.post('/login', (req, res) => {
 
         if (!bcrypt.compareSync(body.password, userDB.password)) {
 
-            return res.status(400).json({
+            return res.status(401).json({
                 ok: false,
                 err: {
                     message: 'invalid credentials test'
@@ -46,7 +46,7 @@ app.post('/login', (req, res) => {
         }, config.dev, { expiresIn: config.TOKEN_EXPIRATION });
         console.log(token);
 
-        res.json({
+        res.status(200).json({
             oK: true,
             user: userDB,
             token

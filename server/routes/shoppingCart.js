@@ -5,7 +5,6 @@ const app = express();
 
 app.post('/shoppingCart',(req, res) =>{
 
-
     // shoopingCartSchema = {  idUser : '5f85b68439ff5a36285471a7', 
     //                         products:[{ idProduct: '5f7701949449505900f23331',
     //                                     quantity : '1',
@@ -43,7 +42,7 @@ app.post('/shoppingCart',(req, res) =>{
     shoopingCart.save((err, shoopingCartDB)=> {
 
         if(err){
-            return res.status(500).json({
+            return res.status(400).json({
                 ok:false,
                 err
             });
@@ -56,7 +55,7 @@ app.post('/shoppingCart',(req, res) =>{
             });
         }
 
-        res.json({
+        res.status(201).json({
             ok:true,
             shoopingCartDB
         })

@@ -9,13 +9,13 @@ app.get('/tax', (req, res) =>{
     Tax.find({})
     .exec((err, taxes) => {
         if (err){
-            return res.status(500).json({
+            return res.status(400).json({
                 ok:false,
                 err
             })
         };
         Taxes = taxes.length;
-        res.json({
+        res.status(200).json({
             Taxes,
             taxes
         })
@@ -45,7 +45,7 @@ app.post('/tax',(req, res) =>{
             });
         }
         
-        res.json({
+        res.status(201).json({
             ok: true,
             tax: taxDB
         });
@@ -64,13 +64,13 @@ app.get('/tax/search/:word', (req, res) =>{
         .sort('value')
         .exec((err, taxes) => {
             if (err) {
-                return res.status(500).json({
+                return res.status(400).json({
                     ok: false,
                     err
                 })
             }
             let numTaxes = taxes.length;
-            res.json({
+            res.status(200).json({
                 ok: true,
                 numTaxes,
                 taxes

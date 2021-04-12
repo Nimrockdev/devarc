@@ -10,12 +10,12 @@ app.get('/category', (req, res) => {
         .sort('description')
         .exec((err, categories) => {
             if (err) {
-                return res.status(500).json({
+                return res.status(400).json({
                     ok: false,
                     err
                 })
             };
-            res.json({
+            res.status(200).json({
                 ok: true,
                 categories
             });
@@ -32,7 +32,7 @@ app.post('/category', (req, res) => {
 
     category.save((err, categoryDB) => {
         if (err) {
-            return res.status(500).json({
+            return res.status(400).json({
                 ok: false,
                 err
             })
@@ -45,7 +45,7 @@ app.post('/category', (req, res) => {
             })
         };
 
-        res.json({
+        res.status(201).json({
             ok: true,
             category: categoryDB
         });

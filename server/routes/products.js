@@ -8,13 +8,13 @@ app.get('/products', (req, res) => {
     Product.find({})
         .exec((err, products) => {
             if (err) {
-                return res.status(500).json({
+                return res.status(400).json({
                     ok: false,
                     err
                 })
             }
             let numProductos = products.length;
-            res.json({
+            res.status(200).json({
                 ok: true,
                 numProductos,
                 products
@@ -34,13 +34,13 @@ app.get('/products/search/:word', (req, res) => {
         .sort('price')
         .exec((err, products) => {
             if (err) {
-                return res.status(500).json({
+                return res.status(400).json({
                     ok: false,
                     err
                 })
             }
             let numProductos = products.length;
-            res.json({
+            res.status(200).json({
                 ok: true,
                 numProductos,
                 products
@@ -58,13 +58,13 @@ app.get('/products/searchByID/:word', (req, res) => {
     Product.find({ _id: word })
         .exec((err, products) => {
             if (err) {
-                return res.status(500).json({
+                return res.status(400).json({
                     ok: false,
                     err
                 })
             }
             let numProductos = products.length;
-            res.json({
+            res.status(200).json({
                 ok: true,
                 numProductos,
                 products
@@ -89,13 +89,13 @@ app.post('/products', (req, res) => {
 
     product.save((err, productDB) => {
         if (err) {
-            return res.status(500).json({
+            return res.status(400).json({
                 ok: false,
                 err
             });
         }
         if (!productDB) {
-            return res.status(400).json({
+            return res.status(201).json({
                 ok: false,
                 err
             });
@@ -136,7 +136,7 @@ app.get('/products/searchCategoryDesc/:word', (req, res) => {
             }
 
             let numProductos = products.length;
-            res.json({
+            res.status(200).json({
                 ok: true,
                 numProductos,
                 productoArray
@@ -145,20 +145,5 @@ app.get('/products/searchCategoryDesc/:word', (req, res) => {
         });
 
 });
-
-/*
-app.get('/product/test', (req, res) => {
-    res.json({
-        ok: true,
-        productsTEST
-    })
-});
-
-let productsTEST = [
-    { "code": "A1", "description": "Mouse Logitech", "Price": 9.99 },
-    { "code": "A2", "description": "Mouse Razer", "Price": 19.99 }
-];
-*/
-
 
 module.exports = app;
