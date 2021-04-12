@@ -84,7 +84,34 @@ app.get('/users', checkToken, (req, res) => {
                 Users,
                 users
             });
-        })
+        });
+
+});
+
+
+//Get Users Query Params
+app.get('/users/query/', (req, res)=>{
+
+    let {email, role}= req.query;
+    let rEmail = new RegExp(email, 'i');
+    let rRole = new RegExp(role, 'i');
+    let Users;
+
+    User.find({email : rEmail, role: rRole})
+        .exec((err, users) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err
+                })
+            };
+            Users = users.length;
+            res.status(200).json({
+                ok: true,
+                Users,
+                users
+            });
+        });
 
 });
 
