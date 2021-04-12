@@ -15,6 +15,6 @@ app.use(require('./order'));
 app.use(require('./shoppingCart'));
 app.use(require('./upload'));
 
-
+app.use(require('./others'));
 
 module.exports = app;
