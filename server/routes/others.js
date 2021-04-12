@@ -9,7 +9,7 @@ app.get('/', (req, res) =>{
 
 app.get('*', (req,res)=>{
     console.log(`Request "${req.path}" not supported`);
-    res.status(200).send(`Request "${req.path}" not supported`)
+    res.status(404).send(`Request "${req.path}" not supported, HTTP Status Code 404 - Not Found`);
 })
 
 module.exports = app;
