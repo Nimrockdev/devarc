@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config/config');
-
+const counter = require('./middlewares/counter');
 
 const app = express();
 
@@ -22,6 +22,7 @@ app.use((req, res, next) => {
 });
 
 
+app.use(counter);
 app.use(require('./routes/index'));
 
 mongoose
