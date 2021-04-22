@@ -15,6 +15,7 @@ app.get('/category', (req, res) => {
                     err
                 })
             };
+            console.log(categories)
             res.status(200).json({
                 ok: true,
                 categories

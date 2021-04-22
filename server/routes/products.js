@@ -115,7 +115,7 @@ app.get('/products/searchCategoryDesc/:word', (req, res) => {
         .populate('category')
         .exec((err, products) => {
             if (err) {
-                return res.status(500).json({
+                return res.status(404).json({
                     ok: false,
                     err
                 })

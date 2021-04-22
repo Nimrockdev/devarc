@@ -39,7 +39,9 @@ mongoose
 
 app.listen(config.port, () => {
 
-    console.log(`API Server Listening on http://localhost:${config.port}`);
-    console.log(`Environment: ${config.dev}`);
+    // console.log(`API Server Listening on http://localhost:${config.port}`);
+    // console.log(`Environment: ${config.dev}`);
 
 });
+
+module.exports = app;
