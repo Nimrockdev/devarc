@@ -15,11 +15,12 @@
 - Use of middlewares.
 - Database used MongoDB Cloud [MongoDB Cloud](https://cloud.mongodb.com/ "MongoDB Cloud") already deployed.
 - Image service for products, [Cloudinary Service](https://cloudinary.com/ "Cloudinary Service") .  **NEW**
-- Deployment method on [Github - Heroku](https://devarc.herokuapp.com/products "Github - Heroku"). **NEW**  
+- Deployment method on [Github - Heroku](https://devarc.herokuapp.com/products "Github - Heroku"). 
 - [Postman Documentation](https://documenter.getpostman.com/view/4424097/TVzVgaPa "Postman Documentation"). **NEW**  
 
 
 ## Coming soon
+- Migrate hosting backend
 - Email notifications.
 - Upgrades ...  
 
