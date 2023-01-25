@@ -20,7 +20,7 @@
 
 
 ## Coming soon
-- Migrate hosting backend
+- 😞 Heroku is no longer available, so soon we will migrate Heroku backend hosting service to another service 😜😜😜
 - Email notifications.
 - Upgrades ...  
 
