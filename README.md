@@ -26,8 +26,8 @@
 
 
 ## Frontend in REACT, working
-[Ideapp, Github Pages](https://nimrockdev.github.io/ideapp/ "Ideapp Products")  **NEW**  
-[Ideapp Github Project](https://github.com/Nimrockdev/ideapp "Ideapp")  **NEW**  
+[Ideapp Github Pages](https://nimrockdev.github.io/ "Ideapp")    
+[Ideapp Github Project](https://github.com/Nimrockdev/ideapp "Ideap Project")   
 
 ## Urls 
 [Devarc Github Project](https://github.com/Nimrockdev/devarc)  
