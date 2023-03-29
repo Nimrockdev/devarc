@@ -25,7 +25,7 @@
 
 
 
-## Frontend in REACT, working
+## Frontend in REACT, working  
 [Ideapp Github Pages](https://nimrockdev.github.io/StartPage/ "Ideapp StartPage")    
 [Ideapp Github Project](https://github.com/Nimrockdev/ideapp "Ideap Project")   
 
