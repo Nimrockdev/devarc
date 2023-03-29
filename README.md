@@ -27,13 +27,10 @@
 
 ## Frontend in REACT, working
 [Ideapp, Github Pages](https://nimrockdev.github.io/ideapp/ "Ideapp Products")  **NEW**  
-[Ideapp Github](https://github.com/Nimrockdev/ideapp "Ideapp")  **NEW**  
+[Ideapp Github Project](https://github.com/Nimrockdev/ideapp "Ideapp")  **NEW**  
 
 ## Urls 
-[Devarc Heroku Products](https://nimrockdev.github.io/product "Devarc Railway Products")  
-[Devarc Heroku DEV](https://nimrockdev.github.io/dev "Devarc Railway DEV")  
-
-[Devarc Github](https://github.com/Nimrockdev/devarc)  
+[Devarc Github Project](https://github.com/Nimrockdev/devarc)  
 [Devarc Github Releases](https://github.com/Nimrockdev/devarc/releases)
 
 I keep developing
