@@ -16,7 +16,7 @@
 - Database used MongoDB Cloud [MongoDB Cloud](https://cloud.mongodb.com/ "MongoDB Cloud") already deployed.
 - Image service for products, [Cloudinary Service](https://cloudinary.com/ "Cloudinary Service") .  
 - [Postman Documentation](https://documenter.getpostman.com/view/4424097/TVzVgaPa "Postman Documentation").   
-- Deployment method on [Github - Railway](https://nimrockdev.github.io/product "Github - Railway"). **NEW**
+- Deployment method on [Github - Railway](https://railway.app "Github - Railway"). **NEW**
 
 ## Coming soon
 
